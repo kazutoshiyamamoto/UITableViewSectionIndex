@@ -52,7 +52,13 @@ extension ViewController: UITableViewDataSource {
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
-        cell.textLabel?.text = sortedList[indexPath.row].value[indexPath.row].listName1
+        cell.textLabel?.text = self.sortedList[indexPath.row].value[indexPath.row].listName1
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.sortedList[indexPath.row].value[indexPath.row].listName1)
     }
 }
