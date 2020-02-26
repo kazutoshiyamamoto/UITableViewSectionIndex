@@ -34,6 +34,15 @@ class ViewController: UIViewController {
         
         let groupedList = Dictionary(grouping: self.lists, by: { String($0.listName1.prefix(1)) })
         self.sortedList = groupedList.sorted{$0.key < $1.key}
-        print(sortedList)
+        print(sortedList[0].value[0].listID)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    // セルの設定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
+        cell.textLabel?.text = sortedList[indexPath.row].value[indexPath.row].listName1
+        return cell
     }
 }
