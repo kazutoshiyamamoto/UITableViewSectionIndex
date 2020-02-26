@@ -37,7 +37,12 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {    
+extension ViewController: UITableViewDataSource {
+    //セクションの個数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sortedList.count
+    }
+    
     //セクション名
     func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int) -> String?{
         return self.sortedList[section].key
@@ -58,6 +63,6 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.sortedList[indexPath.row].value[indexPath.row].listName1)
+        print(self.sortedList[indexPath.section].value[indexPath.row].listName1)
     }
 }
