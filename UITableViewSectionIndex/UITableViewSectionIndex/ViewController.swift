@@ -34,25 +34,24 @@ class ViewController: UIViewController {
         
         let groupedList = Dictionary(grouping: self.lists, by: { String($0.listName1.prefix(1)) })
         self.sortedList = groupedList.sorted{$0.key < $1.key}
-        //        print(sortedList[0].value[0].listID)
     }
 }
 
-extension ViewController: UITableViewDataSource {
-    //セクションの個数
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.sortedList.count
-    }
-    
+extension ViewController: UITableViewDataSource {    
     //セクション名
     func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int) -> String?{
         return self.sortedList[section].key
     }
     
+    // 各セクションのセルの個数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.sortedList[section].value.count
+    }
+    
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
-        cell.textLabel?.text = self.sortedList[indexPath.row].value[indexPath.row].listName1
+        cell.textLabel?.text = self.sortedList[indexPath.section].value[indexPath.row].listName1
         return cell
     }
 }
