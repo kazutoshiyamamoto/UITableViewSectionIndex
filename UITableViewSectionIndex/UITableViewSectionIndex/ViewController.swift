@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         List(listID: 5, listName1: "サカナ", listName2: "fish")
     ]
     
-    private var groupedList = [String: [List]]()
     private var sortedList = [(key: String, value: [List])]()
     private var sectionTitles = [String]()
     
