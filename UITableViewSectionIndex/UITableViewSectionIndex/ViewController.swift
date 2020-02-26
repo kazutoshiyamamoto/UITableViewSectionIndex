@@ -59,6 +59,15 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = self.sortedList[indexPath.section].value[indexPath.row].listName1
         return cell
     }
+    
+    // 画面右側の索引
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var sectionIndexTitles: [String] = []
+        for tuple in self.sortedList {
+            sectionIndexTitles.append(tuple.key)
+        }
+        return sectionIndexTitles
+    }
 }
 
 extension ViewController: UITableViewDelegate {
