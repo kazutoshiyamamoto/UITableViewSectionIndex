@@ -43,7 +43,12 @@ extension ViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.sortedList.count
     }
-        
+    
+    //セクション名
+    func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int) -> String?{
+        return self.sortedList[section].key
+    }
+    
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
