@@ -28,24 +28,34 @@ class ViewController: UIViewController {
     
     private var groupedList = [String: [List]]()
     private var sortedList = [(key: String, value: [List])]()
+    private var sectionTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let groupedList = Dictionary(grouping: self.lists, by: { String($0.listName1.prefix(1)) })
         self.sortedList = groupedList.sorted{$0.key < $1.key}
+        
+        for tuple in self.sortedList {
+            self.sectionTitles.append(tuple.key)
+        }
     }
 }
 
 extension ViewController: UITableViewDataSource {
     //セクションの個数
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sortedList.count
+        return self.sectionTitles.count
     }
     
     //セクション名
     func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int) -> String?{
-        return self.sortedList[section].key
+        return self.sectionTitles[section]
+    }
+    
+    // 画面右側の索引
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return self.sectionTitles
     }
     
     // 各セクションのセルの個数
@@ -58,15 +68,6 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
         cell.textLabel?.text = self.sortedList[indexPath.section].value[indexPath.row].listName1
         return cell
-    }
-    
-    // 画面右側の索引
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        var sectionIndexTitles: [String] = []
-        for tuple in self.sortedList {
-            sectionIndexTitles.append(tuple.key)
-        }
-        return sectionIndexTitles
     }
 }
 
