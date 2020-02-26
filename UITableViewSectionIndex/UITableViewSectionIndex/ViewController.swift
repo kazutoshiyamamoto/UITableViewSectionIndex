@@ -16,6 +16,8 @@ struct List {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     let lists = [
         List(listID: 15, listName1: "テスト", listName2: "test"),
         List(listID: 3, listName1: "テント", listName2: "tent"),
