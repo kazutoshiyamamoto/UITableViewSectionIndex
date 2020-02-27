@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.sectionIndexColor = UIColor.red
+        
         let groupedList = Dictionary(grouping: self.lists, by: { String($0.listName1.prefix(1)) })
         self.sortedList = groupedList.sorted{$0.key < $1.key}
         
