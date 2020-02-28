@@ -35,9 +35,10 @@ class ViewController: UIViewController {
         List(listID: 2, listName1: "ライチ", listName2: "litchi")
     ]
     
-    private var sortedList = [(key: String, value: [List])]()
     private var sectionTitles = [String]()
-    
+    private var sortedList = [(key: String, value: [List])]()
+    private var filteredList = [(key: String, value: [List])]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,9 +97,6 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = self.searchController.searchBar.text else {
-            return
-        }
-        self.tableView.reloadData()
+
     }
 }
