@@ -64,41 +64,64 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     //セクションの個数
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sectionTitles.count
+        if self.searchController.isActive && !self.filteredSectionTitles.isEmpty {
+            return self.filteredSectionTitles.count
+        } else {
+            return self.sectionTitles.count
+        }
     }
     
     //セクション名
     func tableView(_ tableView:UITableView, titleForHeaderInSection section:Int) -> String?{
-        return self.sectionTitles[section]
+        if self.searchController.isActive && !self.filteredSectionTitles.isEmpty {
+            return self.filteredSectionTitles[section]
+        } else {
+            return self.sectionTitles[section]
+        }
     }
     
     // 画面右側の索引
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return self.sectionTitles
+        if self.searchController.isActive && !self.filteredSectionTitles.isEmpty {
+            return self.filteredSectionTitles
+        } else {
+            return self.sectionTitles
+        }
     }
     
-    // 各セクションのセルの個数
+    // 各セクションのセル数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sortedList[section].value.count
+        if self.searchController.isActive && !self.filteredList.isEmpty {
+            return self.filteredList[section].value.count
+        } else {
+            return self.sortedList[section].value.count
+        }
     }
     
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath) as UITableViewCell
-        cell.textLabel?.text = self.sortedList[indexPath.section].value[indexPath.row].listName1
+        if self.searchController.isActive && !self.filteredList.isEmpty {
+            cell.textLabel?.text = self.filteredList[indexPath.section].value[indexPath.row].listName1
+        } else {
+            cell.textLabel?.text = self.sortedList[indexPath.section].value[indexPath.row].listName1
+        }
         return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.sortedList[indexPath.section].value[indexPath.row].listName1)
+        if self.searchController.isActive && !self.filteredList.isEmpty {
+            print(self.filteredList[indexPath.section].value[indexPath.row])
+        } else {
+            print(self.sortedList[indexPath.section].value[indexPath.row])
+        }
     }
 }
 
 extension ViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-
         // SearchBarに入力した文字の色の設定
         self.searchController.searchBar.searchTextField.textColor = .black
         
