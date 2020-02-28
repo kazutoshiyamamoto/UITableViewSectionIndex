@@ -21,8 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let lists = [
-        List(listID: 15, listName1: "テスト", listName2: "test"),
-        List(listID: 3, listName1: "テント", listName2: "tent"),
+        List(listID: 15, listName1: "デラウェア", listName2: "delaware"),
+        List(listID: 3, listName1: "ライム", listName2: "sour"),
         List(listID: 10, listName1: "リンゴ", listName2: "apple"),
         List(listID: 12, listName1: "オレンジ", listName2: "orange"),
         List(listID: 5, listName1: "サカナ", listName2: "fish"),
