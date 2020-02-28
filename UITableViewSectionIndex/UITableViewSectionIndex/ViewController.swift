@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     ]
     
     private var sectionTitles = [String]()
+    private var filteredSectionTitles = [String]()
     private var sortedList = [(key: String, value: [List])]()
     private var filteredList = [(key: String, value: [List])]()
 
