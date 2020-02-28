@@ -101,5 +101,18 @@ extension ViewController: UISearchResultsUpdating {
 
         // SearchBarに入力した文字の色の設定
         self.searchController.searchBar.searchTextField.textColor = .black
+        
+        // SearchBarに入力した文字にマッチした項目があれば一覧を表示する
+        guard let text = self.searchController.searchBar.text else {
+            return
+        }
+        self.filteredList = self.sortedList.filter { $0.value.contains(where: { $0.listName1.contains(text.toKatakana!) }) }
+        
+        self.filteredSectionTitles = []
+        for tuple in self.filteredList {
+            self.filteredSectionTitles.append(tuple.key)
+        }
+        
+        self.tableView.reloadData()
     }
 }
