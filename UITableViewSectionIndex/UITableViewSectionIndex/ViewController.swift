@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchResultsUpdater = self
         
         self.tableView.sectionIndexColor = UIColor.red
         
@@ -86,5 +87,14 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.sortedList[indexPath.section].value[indexPath.row].listName1)
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = self.searchController.searchBar.text else {
+            return
+        }
+        self.tableView.reloadData()
     }
 }
