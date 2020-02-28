@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     private var filteredSectionTitles = [String]()
     private var sortedList = [(key: String, value: [List])]()
     private var filteredList = [(key: String, value: [List])]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,5 +99,7 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
 
+        // SearchBarに入力した文字の色の設定
+        self.searchController.searchBar.searchTextField.textColor = .black
     }
 }
