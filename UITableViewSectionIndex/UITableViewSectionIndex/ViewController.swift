@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "何かお探しですか？"
         
         self.tableView.sectionIndexColor = UIColor.red
         
