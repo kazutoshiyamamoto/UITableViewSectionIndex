@@ -62,7 +62,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    //セクションの個数
+    //セクション数
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.searchController.isActive && !self.filteredSectionTitles.isEmpty {
             return self.filteredSectionTitles.count
@@ -111,6 +111,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    // セル選択時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.searchController.isActive && !self.filteredList.isEmpty {
             print(self.filteredList[indexPath.section].value[indexPath.row])
