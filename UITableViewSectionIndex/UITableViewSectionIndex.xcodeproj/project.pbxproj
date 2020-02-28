@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD2528B42408FF93001F0398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2528B32408FF93001F0398 /* String+Extensions.swift */; };
 		FD66BABC240633CC003E0BF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66BABB240633CC003E0BF3 /* AppDelegate.swift */; };
 		FD66BABE240633CC003E0BF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66BABD240633CC003E0BF3 /* SceneDelegate.swift */; };
 		FD66BAC0240633CC003E0BF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66BABF240633CC003E0BF3 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD2528B32408FF93001F0398 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		FD66BAB8240633CC003E0BF3 /* UITableViewSectionIndex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewSectionIndex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD66BABB240633CC003E0BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD66BABD240633CC003E0BF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				FD66BABB240633CC003E0BF3 /* AppDelegate.swift */,
 				FD66BABD240633CC003E0BF3 /* SceneDelegate.swift */,
 				FD66BABF240633CC003E0BF3 /* ViewController.swift */,
+				FD2528B32408FF93001F0398 /* String+Extensions.swift */,
 				FD66BAC1240633CC003E0BF3 /* Main.storyboard */,
 				FD66BAC4240633CF003E0BF3 /* Assets.xcassets */,
 				FD66BAC6240633CF003E0BF3 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2528B42408FF93001F0398 /* String+Extensions.swift in Sources */,
 				FD66BAC0240633CC003E0BF3 /* ViewController.swift in Sources */,
 				FD66BABC240633CC003E0BF3 /* AppDelegate.swift in Sources */,
 				FD66BABE240633CC003E0BF3 /* SceneDelegate.swift in Sources */,
