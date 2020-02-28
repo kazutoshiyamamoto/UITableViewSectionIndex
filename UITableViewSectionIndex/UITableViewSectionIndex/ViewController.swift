@@ -16,6 +16,8 @@ struct List {
 
 class ViewController: UIViewController {
     
+    private var searchController = UISearchController()
+    
     @IBOutlet weak var tableView: UITableView!
     
     let lists = [
@@ -38,6 +40,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchController = UISearchController(searchResultsController: nil)
         
         self.tableView.sectionIndexColor = UIColor.red
         
