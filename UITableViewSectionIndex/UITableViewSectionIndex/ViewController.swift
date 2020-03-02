@@ -132,7 +132,6 @@ extension ViewController: UISearchResultsUpdating {
         }
         self.filteredList = self.sortedList.filter { $0.value.contains(where: { $0.listName1.contains(text.toKatakana!) }) }
         
-        self.filteredSectionTitles = []
         for tuple in self.filteredList {
             self.filteredSectionTitles.append(tuple.key)
         }
