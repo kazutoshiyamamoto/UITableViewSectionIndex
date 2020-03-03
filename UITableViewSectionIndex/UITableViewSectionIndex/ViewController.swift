@@ -133,8 +133,10 @@ extension ViewController: UISearchResultsUpdating {
         guard let text = self.searchController.searchBar.text else {
             return
         }
+        self.filteredList = []
         self.filteredList = self.sortedList.filter { $0.value.contains(where: { $0.listName1.contains(text.toKatakana!) }) || $0.value.contains(where: { $0.listName2.localizedStandardContains(text) }) }
 
+        self.filteredSectionTitles = []
         for tuple in self.filteredList {
             self.filteredSectionTitles.append(tuple.key)
         }
