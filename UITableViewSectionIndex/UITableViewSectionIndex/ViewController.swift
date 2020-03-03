@@ -32,7 +32,10 @@ class ViewController: UIViewController {
         List(listID: 21, listName1: "パイナップル", listName2: "pineapple"),
         List(listID: 34, listName1: "マンゴー", listName2: "mango"),
         List(listID: 45, listName1: "ユズ", listName2: "citron"),
-        List(listID: 2, listName1: "ライチ", listName2: "litchi")
+        List(listID: 2, listName1: "ライチ", listName2: "litchi"),
+        List(listID: 40, listName1: "アーモンド", listName2: "almond"),
+        List(listID: 41, listName1: "アセロラ", listName2: "acerola"),
+        List(listID: 41, listName1: "アムスメロン", listName2: "amsmelon"),
     ]
     
     private var sectionTitles = [String]()
