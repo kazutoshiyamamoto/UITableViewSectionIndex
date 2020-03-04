@@ -133,9 +133,11 @@ extension ViewController: UISearchResultsUpdating {
         guard let text = self.searchController.searchBar.text else {
             return
         }
+        let filteredList = self.sortedList.flatMap { $0.value.filter { $0.listName1.contains(text.toKatakana!) } }
+        let groupedList = Dictionary(grouping: filteredList, by: { String($0.listName1.prefix(1)) } )
         self.filteredList = []
-        self.filteredList = self.sortedList.filter { $0.value.contains(where: { $0.listName1.contains(text.toKatakana!) }) || $0.value.contains(where: { $0.listName2.localizedStandardContains(text) }) }
-
+        self.filteredList = groupedList.sorted{ $0.key < $1.key }
+        
         self.filteredSectionTitles = []
         for tuple in self.filteredList {
             self.filteredSectionTitles.append(tuple.key)
